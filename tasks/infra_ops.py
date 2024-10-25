@@ -39,6 +39,5 @@ def load_infrastructure_schema(
         execute_command(context=context, command=command_schema)
 
         menu_target = "models/base_menu.yml"
-        if namespace == Namespace.DEV:
-            command_menu = f"{base_cmd} run {SERVICE_WORKER_NAME} infrahubctl menu load {menu_target}"
-            execute_command(context=context, command=command_menu)
+        command_menu = f"{base_cmd} run {SERVICE_WORKER_NAME} infrahubctl menu load {menu_target}"
+        execute_command(context=context, command=command_menu)
