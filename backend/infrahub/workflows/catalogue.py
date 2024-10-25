@@ -85,6 +85,13 @@ REQUEST_ARTIFACT_GENERATE = WorkflowDefinition(
     function="generate_artifact",
 )
 
+REQUEST_ARTIFACT_DEFINITION_GENERATE = WorkflowDefinition(
+    name="artifact-definition-generate",
+    type=WorkflowType.INTERNAL,
+    module="infrahub.git.tasks",
+    function="generate_request_artifact_definition",
+)
+
 GIT_REPOSITORIES_SYNC = WorkflowDefinition(
     name="git_repositories_sync",
     type=WorkflowType.INTERNAL,
@@ -123,5 +130,6 @@ workflows = [
     GIT_REPOSITORIES_CREATE_BRANCH,
     REQUEST_ARTIFACT_GENERATE,
     BRANCH_REBASE,
+    REQUEST_ARTIFACT_DEFINITION_GENERATE,
     REQUEST_GENERATOR_RUN,
 ]
