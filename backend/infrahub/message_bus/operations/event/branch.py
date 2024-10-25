@@ -11,7 +11,6 @@ from infrahub.message_bus import InfrahubMessage, messages
 from infrahub.services import InfrahubServices
 from infrahub.workflows.catalogue import (
     GIT_REPOSITORIES_CREATE_BRANCH,
-    IPAM_RECONCILIATION,
     TRIGGER_ARTIFACT_DEFINITION_GENERATE,
 )
 
@@ -65,11 +64,6 @@ async def merge(message: messages.EventBranchMerge, service: InfrahubServices) -
     await service.workflow.submit_workflow(
         workflow=TRIGGER_ARTIFACT_DEFINITION_GENERATE,
         parameters={"branch": message.target_branch},
-    )
-
-    await service.workflow.submit_workflow(
-        workflow=IPAM_RECONCILIATION,
-        parameters={"branch": message.target_branch, "ipam_node_details": message.ipam_node_details},
     )
 
     for diff_root in branch_diff_roots:

@@ -12,7 +12,7 @@ from infrahub.message_bus import messages
 from infrahub.message_bus.operations.event.branch import delete, merge, rebased
 from infrahub.services import InfrahubServices, services
 from infrahub.services.adapters.workflow.local import WorkflowLocalExecution
-from infrahub.workflows.catalogue import IPAM_RECONCILIATION, TRIGGER_ARTIFACT_DEFINITION_GENERATE
+from infrahub.workflows.catalogue import TRIGGER_ARTIFACT_DEFINITION_GENERATE
 from tests.adapters.message_bus import BusRecorder
 
 
@@ -100,10 +100,6 @@ async def test_merged(default_branch: Branch, init_service: InfrahubServices, pr
 
         expected_calls = [
             call(workflow=TRIGGER_ARTIFACT_DEFINITION_GENERATE, parameters={"branch": message.target_branch}),
-            call(
-                workflow=IPAM_RECONCILIATION,
-                parameters={"branch": message.target_branch, "ipam_node_details": message.ipam_node_details},
-            ),
         ]
         mock_submit_workflow.assert_has_calls(expected_calls)
         assert mock_submit_workflow.call_count == len(expected_calls)

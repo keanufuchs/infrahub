@@ -113,6 +113,17 @@ BRANCH_REBASE = WorkflowDefinition(
     type=WorkflowType.INTERNAL,
     module="infrahub.core.branch.tasks",
     function="rebase_branch",
+    branch_support=BranchSupportType.AWARE,
+    tags=[WorkflowTag.DATABASE_CHANGE],
+)
+
+BRANCH_MERGE = WorkflowDefinition(
+    name="branch-merge",
+    type=WorkflowType.INTERNAL,
+    module="infrahub.core.branch.tasks",
+    function="merge_branch",
+    branch_support=BranchSupportType.AWARE,
+    tags=[WorkflowTag.DATABASE_CHANGE],
 )
 
 worker_pools = [INFRAHUB_WORKER_POOL]
@@ -130,6 +141,7 @@ workflows = [
     GIT_REPOSITORIES_CREATE_BRANCH,
     REQUEST_ARTIFACT_GENERATE,
     BRANCH_REBASE,
+    BRANCH_MERGE,
     REQUEST_ARTIFACT_DEFINITION_GENERATE,
     REQUEST_GENERATOR_RUN,
 ]
