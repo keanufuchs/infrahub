@@ -169,9 +169,6 @@ services:
       - task-manager-db
     environment:
       PREFECT_API_DATABASE_CONNECTION_URL: postgresql+asyncpg://postgres:postgres@task-manager-db:5432/prefect
-      PREFECT_LOCAL_STORAGE_PATH: ${PREFECT_LOCAL_STORAGE_PATH:-/opt/prefect/}
-      # PREFECT_WORKER_QUERY_SECONDS: 3
-      # PREFECT_AGENT_QUERY_INTERVAL: 3
     healthcheck:
       test: /usr/local/bin/httpx http://localhost:4200/api/health || exit 1
       interval: 5s
@@ -211,7 +208,6 @@ services:
         condition: service_healthy
       task-manager:
         condition: service_healthy
-        required: false
     environment:
       <<: *infrahub_config
       INFRAHUB_PRODUCTION: ${INFRAHUB_PRODUCTION:-false}
