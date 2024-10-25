@@ -44,7 +44,7 @@ Object permissions can be applied to different types of objects and across diffe
 |-----------------------------------------------|---------------|---------|-------------|---------------------------------------------------------------------------------------------|
 | `object:*:*:create:allow_other`               | `*` (all types)| `any`   | `allow_other`| Allows creating any object, but only on non-default branches. |
 | `object:*:*:view:allow_all`                   | `*` (all types)| `view`  | `allow_all` | Allows viewing any object, anywhere, across both default and non-default branches. |
-| `object:Builtin:Tag:update:Deny`              | `BuiltinTag`   | `update`| `deny`      | Denies the ability to update any object of type BuiltinTag, across all branches. |
+| `object:Builtin:Tag:update:deny`              | `BuiltinTag`   | `update`| `deny`      | Denies the ability to update any object of type BuiltinTag, across all branches. |
 | `object:*:Generic:view:allow_all`             | `*Generic`     | `view`  | `allow_all` | Allows viewing all objects that contain 'Generic' in their type (example: LocationGeneric, DeviceGeneric) in all namespaces, across all branches. |
 
 ### Attributes
