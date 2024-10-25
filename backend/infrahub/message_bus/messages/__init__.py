@@ -43,7 +43,6 @@ from .request_repository_userchecks import RequestRepositoryUserChecks
 from .schema_migration_path import SchemaMigrationPath, SchemaMigrationPathResponse
 from .schema_validator_path import SchemaValidatorPath, SchemaValidatorPathResponse
 from .send_echo_request import SendEchoRequest, SendEchoRequestResponse
-from .send_telemetry_push import SendTelemetryPush
 from .send_webhook_event import SendWebhookEvent
 from .trigger_generatordefinition_run import TriggerGeneratorDefinitionRun
 from .trigger_proposed_change_cancel import TriggerProposedChangeCancel
@@ -94,7 +93,6 @@ MESSAGE_MAP: dict[str, type[InfrahubMessage]] = {
     "request.repository.user_checks": RequestRepositoryUserChecks,
     "send.echo.request": SendEchoRequest,
     "send.webhook.event": SendWebhookEvent,
-    "send.telemetry.push": SendTelemetryPush,
     "trigger.generator_definition.run": TriggerGeneratorDefinitionRun,
     "trigger.proposed_change.cancel": TriggerProposedChangeCancel,
     "trigger.webhook.actions": TriggerWebhookActions,

@@ -34,7 +34,7 @@ ANONYMOUS_TELEMETRY_SEND = WorkflowDefinition(
     name="anonymous_telemetry_send",
     type=WorkflowType.INTERNAL,
     cron="0 2 * * *",
-    module="infrahub.message_bus.operations.send.telemetry",
+    module="infrahub.tasks.telemetry",
     function="send_telemetry_push",
 )
 
